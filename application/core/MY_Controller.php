@@ -15,9 +15,9 @@
 		$this->data['page_title'] = "YB+";
 		// $this->must_logged_in();
 		$this->load->helper('my_helper');
-		// echo '<pre>';
-//		 debug( $this->session->all_userdata(),true );
-		// echo '</pre>';
+// echo '<pre>';
+//  debug( $this->session->all_userdata(),true );
+// echo '</pre>';
 	}
 
    

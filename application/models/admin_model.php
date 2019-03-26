@@ -38,4 +38,17 @@ class Admin_model extends CI_Model
         );
         return $this->db->insert('mt_schools',input_prep($data));
     }
+
+    public function password_reset($user_id){
+        $this->db->where('user_id',$user_id);
+        $res = $this->db->get('mt_users')->row_array();
+
+        $this->db->where('user_id',$user_id);
+        $data = [
+            'default_password' => $res['username']
+        ];
+        return $this->db->update('mt_users',$data);
+
+
+    }
 }

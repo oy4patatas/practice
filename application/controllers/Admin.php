@@ -7,7 +7,7 @@ class Admin extends MY_Controller{
 		$this->load->model('admin_model');
 		$this->load->model('school_model');
 		$this->form_validation->set_error_delimiters('<p class=" text-danger"><i class="glyphicon glyphicon-remove-sign hide"></i>  ', '</p>');
-		if($this->session->userdata('user_role') != R_SYSADMIN )
+		if($this->session->userdata('user_role') != R_SYSADMIN AND $this->session->userdata('user_role') != R_SCHOOLADMIN )
 		{
 			redirect(site_url());
 		}
@@ -462,7 +462,12 @@ class Admin extends MY_Controller{
 		 echo json_encode($data);
 	}
 
+	public function password_reset($user_id){
+		echo $this->load->library('user_agent');
+		$this->admin_model->password_reset(idecode($user_id) );
+		redirect($this->agent->referrer());
 
+	}
 
 	
 

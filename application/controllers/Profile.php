@@ -10,6 +10,7 @@ class Profile extends MY_Controller{
 	}
 	public function index()
 	{	
+		die('test');
 		if($this->session->userdata('user_role') != R_STUDENT) show_404();
 		$this->load->model('profile_model');
 		$this->load->model('student_model');
@@ -101,7 +102,7 @@ class Profile extends MY_Controller{
 		redirect(base_url('profile/add'));
 	}
 
-	private function _add_student_validation(){
+	private function 	(){
 		$config = array(
 			  array(
 		            'field' => 'first_name',
